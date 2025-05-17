@@ -1,2 +1,6 @@
 #include <iostream>
-using namespacea std;
+using namespace std;
+class buku
+{
+    string judul; 
+}
