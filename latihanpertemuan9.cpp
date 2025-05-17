@@ -37,3 +37,34 @@ public:
     friend class Petugas;
     friend class Admin;
 };
+
+class petugas {
+private:
+    string nama, IDpetugas, levelAkses;
+    
+public:
+    Petugas(string n, string id, string lvl)
+        : nama(n), IDpetugas(id), levelAkses(lvl) {}
+
+    void prosesPinjam(Buku* b, Peminjam* p) {
+        if (!b->dipinjam) {
+            b->dipinjam = true;
+            p->totalPinjaman++;
+            cout << "Buku dipinjam oleh " << p->nama << endl;
+        } else {
+            cout << "Buku sudah dipinjam!" << endl;
+        }
+    }
+
+    void prosesKembali(Buku* b, Peminjam* p) {
+        if (b->dipinjam) {
+            b->dipinjam = false;
+            p->totalPinjaman--;
+            cout << "Buku dikembalikan oleh " << p->nama << endl;
+        } else {
+            cout << "Buku belum dipinjam!" << endl;
+        }
+    }
+
+    friend class Admin;
+};
