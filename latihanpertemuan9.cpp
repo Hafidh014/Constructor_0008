@@ -68,3 +68,17 @@ public:
 
     friend class Admin;
 };
+class Admin {
+public:
+    void lihatStatistik(Peminjam* p, Buku* b) {
+        cout << "Statistik Admin:\n";
+        cout << "- Nama Peminjam: " << p->nama << endl;
+        cout << "- Total Pinjaman: " << p->totalPinjaman << endl;
+        cout << "- Status Buku: " << (b->dipinjam ? "Dipinjam" : "Tersedia") << endl;
+    }
+
+    void ubahLevelAkses(Petugas* ptg, string levelBaru) {
+        petugas->levelAkses = levelBaru;
+        cout << "Level akses petugas diubah ke: " << levelBaru << endl;
+    }
+};
